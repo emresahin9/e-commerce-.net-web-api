@@ -7,6 +7,7 @@ using Core.Utilities.Business;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
+using Entities.DTOs;
 
 namespace Business.Concrete
 {
@@ -58,6 +59,11 @@ namespace Business.Concrete
         public IDataResult<Category> GetById(int categoryId)
         {
             return new SuccessDataResult<Category>(_categoryDal.Get(x => x.Id == categoryId));
+        }
+
+        public IDataResult<List<CategoryForOption>> GetCategoriesForOptions()
+        {
+            return new SuccessDataResult<List<CategoryForOption>>(_categoryDal.GetCategoriesForOptions());
         }
     }
 }

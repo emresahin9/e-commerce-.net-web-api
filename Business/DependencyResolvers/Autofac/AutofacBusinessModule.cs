@@ -23,8 +23,12 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<CategoryManager>().As<ICategoryService>();
             builder.RegisterType<EfCategoryDal>().As<ICategoryDal>();
 
-            //builder.RegisterType<ProductManager>().As<IProductService>();
-            //builder.RegisterType<EfProductDal>().As<IProductDal>();
+            builder.RegisterType<ProductManager>().As<IProductService>();
+            builder.RegisterType<EfProductDal>().As<IProductDal>();
+            builder.RegisterType<EfProductImageDal>().As<IProductImageDal>();
+
+            builder.RegisterType<BrandManager>().As<IBrandService>();
+            builder.RegisterType<EfBrandDal>().As<IBrandDal>();
 
             var assembly = System.Reflection.Assembly.GetExecutingAssembly();
 

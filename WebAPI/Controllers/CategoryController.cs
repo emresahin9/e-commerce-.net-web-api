@@ -1,6 +1,5 @@
 ﻿using Business.Abstract;
 using Entities.Concrete;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebAPI.Controllers
@@ -63,6 +62,17 @@ namespace WebAPI.Controllers
         public ActionResult Delete(int id)
         {
             var result = _categoryService.Delete(id);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
+        [HttpGet("get-all-categories-for-options")]
+        public ActionResult GetAllCategoriesForOptions()
+        {
+            var result = _categoryService.GetCategoriesForOptions();
             if (result.Success)
             {
                 return Ok(result);

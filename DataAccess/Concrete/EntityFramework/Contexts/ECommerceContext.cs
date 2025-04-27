@@ -22,6 +22,8 @@ namespace DataAccess.Concrete.EntityFramework.Contexts
         public DbSet<District> Districts { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Product> Products { get; set; }
+        public DbSet<Brand> Brands { get; set; }
+        public DbSet<ProductImage> ProductImages { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -34,6 +36,8 @@ namespace DataAccess.Concrete.EntityFramework.Contexts
             modelBuilder.ApplyConfiguration(new DistrictConfiguration());
             modelBuilder.ApplyConfiguration(new CategoryConfiguration());
             modelBuilder.ApplyConfiguration(new ProductConfiguration());
+            modelBuilder.ApplyConfiguration(new BrandConfiguration());
+            modelBuilder.ApplyConfiguration(new ProductImageConfiguration());
 
             new OperationClaimSeedData().Seed(modelBuilder);
             new AdminSeedData().Seed(modelBuilder);

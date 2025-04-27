@@ -1,5 +1,6 @@
 ﻿using Core.Utilities.Results;
 using Entities.Concrete;
+using Entities.DTOs;
 
 namespace Business.Abstract
 {
@@ -10,5 +11,6 @@ namespace Business.Abstract
         IResult Delete(int id);
         IDataResult<List<Category>> GetAll();
         IDataResult<Category> GetById(int categoryId);
+        IDataResult<List<CategoryForOption>> GetCategoriesForOptions();
     }
 }
